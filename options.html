@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extension Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      width: 80%;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      font-size: 16px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .div-center {
+      margin: 20px auto 20px;
+      padding: 10px;
+    }
+
+    .plMoney::after {
+    content:" PLN";
+    }
+
+    .percent::after {
+    content:" %";
+    }
+
+    .euMileage::after {
+    content:" km";
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="div-center">
+  <h1>Extension Options</h1>
+  <form id="optionsForm">
+    <div class="form-group">
+    <h2>Sanity parameters</h2>
+    <label for="yearly_income">Annual net income: <span id="yearly_income_output" class="plMoney"></span></label>
+    <input type="range" id="yearly_income" name="yearly_income" min="5000" max="500000" step="5000">
+    <br>
+    <label for="max_income" alt="Maksymalna kwota za auto względem zarobków rocznych, jako procent zarobków. Typowa wartość to 50%.">Price maximum % of income: <span id="max_income_output" class="percent"></span></label>
+    <input type="range" id="max_income" name="max_income" min="5" max="200" step="5">
+    <br>
+    <label for="max_car_age">Max car age (at the end of use): <span id="max_car_age_output"></span></label>
+    <input type="range" id="max_car_age" name="max_car_age" min="1" max="30" step="1">
+    <br>
+    <label for="yearly_mileage">Typical annual mileage: <span id="yearly_mileage_output" class="euMileage"></span></label>
+    <input type="range" id="yearly_mileage" name="yearly_mileage" min="1000" max="50000" step="1000">
+    <br>
+    <label for="max_mileage">Max mileage (at the end of use): <span id="max_mileage_output" class="euMileage"></span></label>
+    <input type="range" id="max_mileage" name="max_mileage" min="10000" max="500000" step="10000">
+    <br>
+  </div>
+  <button type="submit">Save</button>
+
+  <hr>
+  <div class="form-group">
+    <h2>Otomoto settings</h2>
+    <label for="limit">Limit of Elements to Update:</label>
+    <input type="number" id="limit" name="limit" min="0" max="200" step="1" required>
+    <br>
+    <label for="xpath">Main XPath for Elements to Update:</label>
+    <input type="text" id="xpath" name="xpath" required>
+    <br>
+    <label for="xpath_price">Price XPath for Elements to Update:</label>
+    <input type="text" id="xpath_price" name="xpath_price" required>
+    <br>
+    <label for="xpath">Mileage XPath for Elements to Update:</label>
+    <input type="text" id="xpath_mileage" name="xpath_mileage" required>
+    <br>
+    <label for="xpath_age">Age XPath for Elements to Update:</label>
+    <input type="text" id="xpath_age" name="xpath_age" required>
+    <br>
+    <label for="xpath_offer_link">Offer link XPath for Elements to Update:</label>
+    <input type="text" id="xpath_offer_link" name="xpath_offer_link" required>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

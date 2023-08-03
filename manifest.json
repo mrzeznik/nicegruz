@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Nice Gruz",
+  "version": "1.0",
+  "description": "Calculates car offer parameters.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "action": {
+    "default_popup": "options.html",
+    "default_icon": {
+      "48": "icons/border-48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.otomoto.pl/*", "*://*.olx.pl/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

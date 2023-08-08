@@ -8,9 +8,9 @@ Wtyczka wylicza parametry oferty ze stron z ogłoszeniami:
 Możlwości:
 - konfigurowalny "rozsądek" kupującego
 - koszt miesięczny względem "pozostałego" czasu i przebiegu
-- wskazanie "nieopłacalnych" ofert:
+- wskazanie mniej opłacalnych ofert:
     - ze zbyt dużym przebiegiem względem pozostałego czasu
-    - z krótkim użytecznym czasem
+    - z krótkim użytecznym czasem - dla danego wieku auta i zakładanych przebiegów nie zdążysz "wyjeździć" auta
 - wskazanie ofert poza "rozsądnymi" możliwościami finansowymi
 
 

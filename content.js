@@ -7,9 +7,9 @@ class Car {
   #price;
 
   static init(carYear, carMileage, carPrice) {
-    if (carPrice < 0) throw new Error(`Car price cannot be < 0: ${carPrice}`);
-    if (carMileage < 0) throw new Error(`Car mileage cannot be < 0: ${carMileage}`);
-    if (carYear < 1900) throw new Error(`Car year cannot be < 1900: ${carYear}`);
+    if (isNaN(carPrice) || carPrice < 0) throw new Error(`Car price cannot be NaN or < 0: ${carPrice}`);
+    if (isNaN(carMileage) || carMileage < 0) throw new Error(`Car mileage cannot be NaN or < 0: ${carMileage}`);
+    if (isNaN(carYear) || carYear < 1900) throw new Error(`Car year cannot be NaN or < 1900: ${carYear}`);
     var car = new Car();
 
     car.#carYear = Number(carYear);
@@ -113,7 +113,7 @@ function modifyDOM(limit, xpath, xpath_price, xpath_mileage, xpath_age, xpath_of
 
   for (let i = 0; i < master_offer.snapshotLength && i < limit; i++) {
     const element = master_offer.snapshotItem(i);
-    if (!element.hasAttribute("data-uppercased")) {
+    if (!element.hasAttribute("offer-updated")) {
       try {
         const title_element = getChildElementByXPath(element, xpath_offer_link)
         const price_element = getChildElementByXPath(element, xpath_price);
@@ -128,9 +128,10 @@ function modifyDOM(limit, xpath, xpath_price, xpath_mileage, xpath_age, xpath_of
 
         const reasonable = sanity.isReasonable(car);
         const monthlyCost = sanity.monthlyCost(car);
+        const usableYears = sanity.usableYearsAvg(car);
 
-        price_element.textContent = price_element.textContent + ` ${reasonable}, ${monthlyCost} PLN/msc`;
-        element.setAttribute("data-uppercased", "true");
+        price_element.textContent = price_element.textContent + ` ${reasonable}, ${monthlyCost} PLN/msc@${usableYears}y`;
+        element.setAttribute("offer-updated", "true");
         console.log(`Element for ${title_element.textContent} updated: it's price: ${price_value}, mileage: ${mileage_value}, year: ${year_value}`);
       } catch (error) {
         console.error(`Failed to update element: ${error}`);

@@ -1,47 +1,29 @@
-var yearly_income_slider = document.getElementById("yearly_income");
-var yearly_income_output = document.getElementById("yearly_income_output");
-yearly_income_output.innerHTML = yearly_income_slider.value;
-
-yearly_income_slider.oninput = function() {
-  yearly_income_output.innerHTML = Number(this.value).toLocaleString('PL');
+function updateLabel(rangeInputId, rangeValueId) {
+  var rangeInput = document.getElementById(rangeInputId);
+  var rangeValue = document.getElementById(rangeValueId);
+  rangeValue.textContent = Number(rangeInput.value).toLocaleString("PL");
 }
 
-// max_income
-var max_income_slider = document.getElementById("max_income");
-var max_income_output = document.getElementById("max_income_output");
-max_income_output.innerHTML = max_income_slider.value;
-
-max_income_slider.oninput = function() {
-  max_income_output.innerHTML = Number(this.value);
+function attachEventListeners(rangeInputId, rangeValueId) {
+  var rangeInput = document.getElementById(rangeInputId);
+  rangeInput.addEventListener("input", function() {
+    updateLabel(rangeInputId, rangeValueId);
+  });
 }
 
-// max_car_age
-var max_car_age_slider = document.getElementById("max_car_age");
-var max_car_age_output = document.getElementById("max_car_age_output");
-max_car_age_output.innerHTML = max_car_age_slider.value;
-
-max_car_age_slider.oninput = function() {
-  max_car_age_output.innerHTML = Number(this.value).toLocaleString('PL');
-}
-
-// yearly_mileage
-var yearly_mileage_slider = document.getElementById("yearly_mileage");
-var yearly_mileage_output = document.getElementById("yearly_mileage_output");
-yearly_mileage_output.innerHTML = yearly_mileage_slider.value;
-
-yearly_mileage_slider.oninput = function() {
-  yearly_mileage_output.innerHTML = Number(this.value).toLocaleString('PL');
-}
-
-// max_mileage
-var max_mileage_slider = document.getElementById("max_mileage");
-var max_mileage_output = document.getElementById("max_mileage_output");
-max_mileage_output.innerHTML = max_mileage_slider.value;
-
-max_mileage_slider.oninput = function() {
-  max_mileage_output.innerHTML = Number(this.value).toLocaleString('PL');
-}
-
+// Call the updateLabel function on page load to set the initial values
+window.addEventListener("load", function() {
+  updateLabel("yearly_income", "yearly_income_output");
+  attachEventListeners("yearly_income", "yearly_income_output");
+  updateLabel("max_income", "max_income_output");
+  attachEventListeners("max_income", "max_income_output");
+  updateLabel("max_car_age", "max_car_age_output");
+  attachEventListeners("max_car_age", "max_car_age_output");
+  updateLabel("yearly_mileage", "yearly_mileage_output");
+  attachEventListeners("yearly_mileage", "yearly_mileage_output");
+  updateLabel("max_mileage", "max_mileage_output");
+  attachEventListeners("max_mileage", "max_mileage_output");
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("optionsForm");

@@ -6,7 +6,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 10px;
-      width: 80%;
+      width: 90%;
     }
 
     h1 {
@@ -23,7 +23,7 @@
 
     input[type="number"],
     input[type="text"] {
-      width: 100%;
+      width: 95%;
       font-size: 16px;
       padding: 8px;
       border: 1px solid #ccc;
@@ -66,7 +66,7 @@
     }
 
     input[type="range"] {
-      width: 100%;
+      width: 95%;
     }
 
   </style>
@@ -78,19 +78,19 @@
     <div class="form-group">
     <h2>Sanity parameters</h2>
     <label for="yearly_income">Annual net income: <span id="yearly_income_output" class="plMoney"></span></label>
-    <input type="range" id="yearly_income" name="yearly_income" min="5000" max="500000" step="5000">
+    <input type="range" id="yearly_income" name="yearly_income" min="5000" max="500000" step="5000" value="100000">
     <br>
     <label for="max_income" alt="Maksymalna kwota za auto względem zarobków rocznych, jako procent zarobków. Typowa wartość to 50%.">Price maximum % of income: <span id="max_income_output" class="percent"></span></label>
-    <input type="range" id="max_income" name="max_income" min="5" max="200" step="5">
+    <input type="range" id="max_income" name="max_income" min="5" max="200" step="5" value="55">
     <br>
     <label for="max_car_age">Max car age (at the end of use): <span id="max_car_age_output"></span></label>
-    <input type="range" id="max_car_age" name="max_car_age" min="1" max="30" step="1">
+    <input type="range" id="max_car_age" name="max_car_age" min="1" max="30" step="1" value="15">
     <br>
     <label for="yearly_mileage">Typical annual mileage: <span id="yearly_mileage_output" class="euMileage"></span></label>
-    <input type="range" id="yearly_mileage" name="yearly_mileage" min="1000" max="50000" step="1000">
+    <input type="range" id="yearly_mileage" name="yearly_mileage" min="1000" max="50000" step="1000" value="15000">
     <br>
     <label for="max_mileage">Max mileage (at the end of use): <span id="max_mileage_output" class="euMileage"></span></label>
-    <input type="range" id="max_mileage" name="max_mileage" min="10000" max="500000" step="10000">
+    <input type="range" id="max_mileage" name="max_mileage" min="10000" max="500000" step="10000" value="250000">
     <br>
   </div>
   <button type="submit">Save</button>
